@@ -8333,6 +8333,13 @@ react-scripts@3.3.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-vexflow@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-vexflow/-/react-vexflow-0.0.4.tgz#0f334eba5eb2fd90845ed2faa22556af22dad192"
+  integrity sha512-Hs/H98fpDvCWcZz+pEciFml0ItLNkPJQw4HQpbUI5YgPx8gUjN16lDkntp4O35ssKDE2mUjrBxc4097XCgyDwA==
+  dependencies:
+    vexflow "^1.2.89"
+
 react@^16.12.0:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
@@ -9989,6 +9996,11 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vexflow@^1.2.89, vexflow@^1.2.90:
+  version "1.2.90"
+  resolved "https://registry.yarnpkg.com/vexflow/-/vexflow-1.2.90.tgz#738879ff46a9ab6c91fb0a7ffa7e510308797f2f"
+  integrity sha512-u3wh4pVVPQ0HA1Euj1W+HJlCkGxx4RkeMz+JLOTUeoWDPPjYPfPll2cXaxrpn3oaTpVDwb7Md3scKXm/mTcMYA==
+
 vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
@@ -10042,6 +10054,11 @@ webidl-conversions@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==
+
+webmidi@^2.3.0:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/webmidi/-/webmidi-2.5.1.tgz#e98b0bb5356afb5112aaff7eaac23606cf0b71d0"
+  integrity sha512-rX9/vBBSnSZR04ZZcLWCe/ujOizH9f/Q9HX11+Zw+HHwOy7edUTbbC3Axc2RjoiDQ2W7RkK1tY4yv0nYSfUcJg==
 
 webpack-dev-middleware@^3.7.2:
   version "3.7.2"
