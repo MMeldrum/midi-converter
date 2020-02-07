@@ -15,38 +15,41 @@ function App() {
             console.log(WebMidi.inputs);
             console.log(WebMidi.outputs);
 
-            // Retrieve an input by name, id or index
-            // let input = WebMidi.getInputByName("circuit");
-            let input = WebMidi.inputs[0];
+            if (WebMidi.inputs.length > 0) {
+                // Retrieve an input by name, id or index
+                // let input = WebMidi.getInputByName("circuit");
+                let input = WebMidi.inputs[0];
 
-            // Listen for a 'note on' message on all channels
-            input.addListener('noteon', "all",
-                function (e) {
-                    console.log("Received 'noteon' message (" + e.note.name + e.note.octave + ").");
-                }
-            );
+                // Listen for a 'note on' message on all channels
+                input.addListener('noteon', "all",
+                    function (e) {
+                        console.log("Received 'noteon' message (" + e.note.name + e.note.octave + ").");
+                        // Score.addToStaveData(e.note.name + e.note.octave);
+                        // Score.setCount2(count + 1);
+                    }
+                );
 
-            // Listen for a 'note on' message on all channels
-            // input.addListener('noteoff', "all",
-            //     function (e) {
-            //         console.log("Received 'noteoff' message (" + e.note.name + e.note.octave + ").");
-            //     }
-            // );
+                // Listen for a 'note on' message on all channels
+                // input.addListener('noteoff', "all",
+                //     function (e) {
+                //         console.log("Received 'noteoff' message (" + e.note.name + e.note.octave + ").");
+                //     }
+                // );
 
-            // Listen to pitch bend message on channel 3
-            input.addListener('pitchbend', 3,
-                function (e) {
-                    console.log("Received 'pitchbend' message.", e);
-                }
-            );
+                // Listen to pitch bend message on channel 3
+                input.addListener('pitchbend', 3,
+                    function (e) {
+                        console.log("Received 'pitchbend' message.", e);
+                    }
+                );
 
-            // Listen to control change message on all channels
-            input.addListener('controlchange', "all",
-                function (e) {
-                    console.log("Received 'controlchange' message.", e);
-                }
-            );
-
+                // Listen to control change message on all channels
+                input.addListener('controlchange', "all",
+                    function (e) {
+                        console.log("Received 'controlchange' message.", e);
+                    }
+                );
+            }
         }
 
     });

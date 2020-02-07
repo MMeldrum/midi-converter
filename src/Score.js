@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import VexFlow from 'vexflow';
 
 const VF = VexFlow.Flow;
@@ -12,6 +12,7 @@ const staveData = [
     ['a4', 'a4', 'b4', 'a4'],
     ['d4', 'e4', ['g3', 2]],
 ];
+
 export function Score({
                           staves = staveData,
                           clef = 'treble',
@@ -19,16 +20,24 @@ export function Score({
                           width = 450,
                           height = 150,
                       }) {
+
+    // Declare a new state variable, which we'll call "count"
+    // const [count, setCount] = useState(0);
+    const [notes, setNotes] = useState(staveData);
+
     const container = useRef();
     const rendererRef = useRef();
 
-    useEffect(() => {
-        if (rendererRef.current == null) {
+    useEffect(parseNotes, [staves]);
+
+    function parseNotes() {
+
+        // if (rendererRef.current == null) {
             rendererRef.current = new Renderer(
                 container.current,
                 Renderer.Backends.SVG
             )
-        }
+        // }
         const renderer = rendererRef.current;
         renderer.resize(width, height);
         const context = renderer.getContext();
@@ -36,6 +45,8 @@ export function Score({
         const staveWidth = (width - clefAndTimeWidth) / staves.length;
 
         let currX = 0;
+        console.log("refreshing " + staves.length + " staves.");
+
         staves.forEach((notes, i) => {
             const stave = new Stave(currX, 0, staveWidth);
             if (i === 0) {
@@ -69,9 +80,24 @@ export function Score({
                 auto_beam: true,
             })
         })
-    }, [staves]);
+    }
 
-    return <div ref={container}/>
+    return (
+        <div>
+            <div ref={container}/>
+            <p>You played these {notes}</p>
+            <button onClick={setNotesMM}>
+                Click me
+            </button>
+        </div>);
+
+    function setNotesMM() {
+        staveData.push([["A4"], ["A4"], ["A4"], ["A4"]]);
+        console.log(staveData);
+        parseNotes();
+        return setNotes(staveData);
+
+    }
 }
 
 export default Score;
